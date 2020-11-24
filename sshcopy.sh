@@ -5,7 +5,7 @@
 # 
 
 
-ssh-keygen -A
+ssh-keygen -b 4092 -t rsa
 
 while read line; 
 do 
