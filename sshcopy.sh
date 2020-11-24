@@ -5,7 +5,7 @@
 # 
 
 
-ssh-keygen -b 4092 -t rsa -q
+ssh-keygen -b 4092 -t rsa -f /root/DEV/sshkey -q -N "" 
 
 while read line; 
 do 
