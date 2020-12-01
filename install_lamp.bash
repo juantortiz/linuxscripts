@@ -18,7 +18,7 @@ dnf install https://rpms.remirepo.net/enterprise/remi-release-8.rpm -y
 
 sleep 5
 ### Install systems httpd, mysql
-dnf install -y httpd mysql-server mysql 
+dnf install -y httpd mysql-server mysql mod_ssl
 
 sleep 5
 ### Install php
@@ -27,7 +27,7 @@ dnf install -y php php-cli php-common
 
 sleep 5
 ### Enable systems
-systemctl enable httpd mysqld
+systemctl enable httpd mysqld 
 
 
 sleep 5
@@ -45,6 +45,9 @@ git clone https://github.com/juantortiz/linuxscripts.git
 cp /root/repo/linuxscripts/configs/httpd/httpd.conf /etc/httpd/conf/httpd.conf
 systemctl restart httpd
 
+mkdir pubcert
+#### CERT
+openssl req -nodes -newkey rsa:4096 -keyout /root/probcert/web.key -out /root/probcert/web.csr -subj "/C=AR/ST=CABA/L=Liniers/O=CONSULAN/OU=IT/CN=info@consulan.com.ar"
 
 
 
