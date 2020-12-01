@@ -41,7 +41,6 @@ mkdir repo
 cd /root/repo
 git clone https://github.com/juantortiz/linuxscripts.git
 
-cp 
 
 
 
