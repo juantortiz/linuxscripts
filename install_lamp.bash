@@ -34,6 +34,16 @@ sleep 5
 ### Activate systems
 systemctl start httpd mysqld 
 
+sleep 5
+#### get httpd.conf and backup
+cp /etc/httpd/conf/httpd.conf /etc/httpd/conf/httpd.conf.bck 
+mkdir repo
+cd /root/repo
+git clone https://github.com/juantortiz/linuxscripts.git
+
+cp 
+
+
 
 
 
