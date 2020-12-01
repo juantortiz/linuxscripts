@@ -43,6 +43,8 @@ git clone https://github.com/juantortiz/linuxscripts.git
 
 ### install configuration file into system
 cp /root/repo/linuxscripts/configs/httpd/httpd.conf /etc/httpd/conf/httpd.conf
+systemctl restart httpd
+
 
 
 
