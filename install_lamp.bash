@@ -22,6 +22,8 @@ dnf install -y httpd mysql-server mysql mod_ssl
 
 sleep 5
 ### Install php
+systemctl disable firewalld
+setenforce 0
 dnf module -y enable php:remi-8.0
 dnf install -y php php-cli php-common
 
@@ -45,9 +47,14 @@ git clone https://github.com/juantortiz/linuxscripts.git
 cp /root/repo/linuxscripts/configs/httpd/httpd.conf /etc/httpd/conf/httpd.conf
 systemctl restart httpd
 
+### Down the firewall for testing pourposes.
+systemctl stop firewalld
+
 mkdir pubcert
 #### CERT
 openssl req -nodes -newkey rsa:4096 -keyout /root/probcert/web.key -out /root/probcert/web.csr -subj "/C=AR/ST=CABA/L=Liniers/O=CONSULAN/OU=IT/CN=info@consulan.com.ar"
+
+cp /etc/httpd/conf.d/ssl.conf /etc/httpd/conf.d/ssl.conf.bck
 
 
 
